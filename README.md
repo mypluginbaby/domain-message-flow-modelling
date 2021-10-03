@@ -1,99 +1,99 @@
-# Domain Message Flow Modelling
+# Моделирование потока сообщений Домена
 
-Designing loosely-coupled systems requires more than carefully designed boundaries. Carefully defined interactions between bounded contexts is equally important.
+Проектирование слабосвязанных систем требует большего, чем просто тщательно продуманные границы. Не менее важно тщательно определенное взаимодействие между ограниченными контекстами.
 
-A [bounded context](https://martinfowler.com/bliki/BoundedContext.html) is a sub-system in a software architecture aligned to a part of the domain. It can be implemented as a microservice or a module within a monolith.
+A [ограниченный контекст](https://martinfowler.com/bliki/BoundedContext.html ) - это подсистема в архитектуре программного обеспечения, согласованная с частью домена. Он может быть реализован в виде микросервиса или модуля внутри монолита.
 
-A Domain Message Flow Diagram is a simple visualisation showing the flow of messages (commands, events, queries) between actors, bounded contexts, and systems, for a single scenario.
+Схема потока сообщений домена - это простая визуализация, показывающая поток сообщений (команд, событий, запросов) между участниками, ограниченными контекстами и системами для одного сценария.
 
-## Formats
+## Форматы
 
-There are 2 basic formats, but there is no formal specification so adjust the tool to suit your needs if the basic formats don't work for you.
+Существует 2 основных формата, но формальной спецификации нет, поэтому настройте инструмент в соответствии с вашими потребностями, если базовые форматы вам не подходят.
 
-### Separate Message & Contents
+### Отдельное сообщение и содержание
 
-The separate message & contents format uses 2 shapes for each message: 1 for the name and order of the message and a separate box to display the contents of the message (the information it carries).
+Формат отдельного сообщения и содержимого использует 2 формы для каждого сообщения: 1 для имени и порядка сообщения и отдельное поле для отображения содержимого сообщения (информации, которую оно содержит).
 
-The benefit of this format is that you can focus on the flow of messages without getting bogged down by the message contents at the start.
+Преимущество этого формата заключается в том, что вы можете сосредоточиться на потоке сообщений, не увязая в содержимом сообщения с самого начала.
 
-Start by showing just the messages flowing between senders and receivers (with the order number on the message).
+Начните с отображения только сообщений, передаваемых между отправителями и получателями (с номером заказа в сообщении).
 
-![Message Flow Just Messages](resources/just-messages-no-contents.jpg)
+![Поток сообщений - Просто Сообщения](resources/just-messages-no-contents.jpg )
 
-Then show the contents of each message in a separate box next to each message:
+Затем покажите содержимое каждого сообщения в отдельном поле рядом с каждым сообщением:
 
-![Message Flow Messages & Contents](resources/messages-and-contents.jpg)
+![Поток сообщений Сообщения и содержимое](resources/messages-and-contents.jpg )
 
-### Combined Message & Contents
+### Комбинированное сообщение и содержание
 
-The combined message & contents format uses a single shape to capture the message name, order, and contents.
+Объединенный формат сообщения и содержимого использует единую форму для записи имени, порядка и содержимого сообщения.
 
-![Example Message Flow](resources/domain-message-flow.jpg "An Example Domain Message Flow")
+![Пример потока сообщений](resources/domain-message-flow.jpg "Пример потока сообщений Домена")
 
-This format is good when you want to focus on the contents of each message from the beginning.
+Этот формат хорош, когда вы хотите сосредоточиться на содержании каждого сообщения с самого начала.
 
-### Downloads
+### Загрузки
 
-- [Domain Message Flow Modelling (miro board backup)](resources/Domain-Message-Flow-Modelling-en-v1.rtb)
+- [Моделирование потока сообщений домена (резервное копирование платы miro)] (ресурсы/Моделирование потока сообщений домена-en-v1.rtb)
 
-## How to Use
+## Как использовать
 
-When you have an initial cut of your architecture - you have identified candidate bounded contexts - you can begin design the message flows.
+Когда у вас есть начальный срез вашей архитектуры - вы определили возможные ограниченные контексты - вы можете приступить к проектированию потоков сообщений.
 
-Start by creating a list of of scenarios to model. And then for each scenario create a diagram
+Начните с создания списка сценариев для моделирования. А затем для каждого сценария создайте диаграмму
 
-When creating a diagram, the typical flow is:
+При создании диаграммы типичным потоком является:
 
-1. Start with an actor/context/system
-2. Create the message they want to send
-3. Add the recipient of the message and a line connecting the sender and the receiver
-4. Place the message close to the line
-5. Repeat steps 1 - 4 until your scenario is complete
+1. Начните с субъекта/контекста/системы
+2. Создайте сообщение, которое они хотят отправить
+3. Добавьте получателя сообщения и линию, соединяющую отправителя и получателя
+4. Поместите сообщение рядом со строкой
+5. Повторяйте шаги 1-4, пока ваш сценарий не будет завершен
 
-The message should contain 3 elements:
+Сообщение должно содержать 3 элемента:
 
-1. The name of the message
-2. The significant data contained within the message
-3. The order in which the message occurs in the flow being modelled
+1. Название сообщения
+2. Важные данные, содержащиеся в сообщении
+3. Порядок, в котором сообщение появляется в моделируемом потоке
 
-## Visualisation Tips
+## Советы по визуализации
 
-The number one problem with Domain Message Flow Diagrams, and diagrams in general, is too much information. [Miller's Law](https://en.wikipedia.org/wiki/Miller%27s_law) is a good heuristic to use here. Aim to have between 5 and 9 messages on your diagram.
+Проблема номер один с диаграммами потока сообщений домена и диаграммами в целом - это слишком много информации. [Закон Миллера](https://en.wikipedia.org/wiki/Miller%27s_law ) является хорошей эвристикой для использования здесь. Стремитесь, чтобы на вашей диаграмме было от 5 до 9 сообщений.
 
-If you find that adding the data to each message is breaking your flow of progress, you can defer the data section of each message it until you have placed all of your messages.
+Если вы обнаружите, что добавление данных в каждое сообщение нарушает ход выполнения, вы можете отложить раздел данных каждого сообщения до тех пор, пока не разместите все свои сообщения.
 
-## Additional Resources
+## Дополнительные ресурсы
 
-- [DDD Pattern: Library Contexts](https://medium.com/nick-tune-tech-strategy-blog/ddd-pattern-library-contexts-d6ae81f462ef)
-- [Mapper Contexts & Supercontexts: Decoupling Domain-Specific and Domain-Generic Bounded Contexts](https://medium.com/nick-tune-tech-strategy-blog/mapper-contexts-supercontexts-decoupling-domain-specific-and-domain-generic-bounded-contexts-5eb6a1e7c5fc)
-- [Gateway Interchange Contexts](https://medium.com/nick-tune-tech-strategy-blog/gateway-interchange-contexts-899696e67848)
+- [Шаблон DDD: Библиотечные контексты](https://medium.com/nick-tune-tech-strategy-blog/ddd-pattern-library-contexts-d6ae81f462ef )
+- [Контексты и суперконтексты картографа: Разделение границ, специфичных для домена, и границ, характерных для домена Contexts](https://medium.com/nick-tune-tech-strategy-blog/mapper-contexts-supercontexts-decoupling-domain-specific-and-domain-generic-bounded-contexts-5eb6a1e7c5fc)
+- [Контексты обмена шлюзами](https://medium.com/nick-tune-tech-strategy-blog/gateway-interchange-contexts-899696e67848 )
 
-## Contributors
+## Участники
 
-Thanks to all [existing and future contributors](https://github.com/ddd-crew/domain-message-flow-modelling/graphs/contributors) and to the following individuals who have all contributed to Domain Message Flow Modelling:
+Спасибо всем [существующим и будущим участникам](https://github.com/ddd-crew/domain-message-flow-modelling/graphs/contributors ) и следующим лицам, которые внесли свой вклад в моделирование потока сообщений домена:
 
-- [Kacper Gunia](https://github.com/cakper)
-- [Zsofia Herendi](https://twitter.com/zherendi)
-- [Nick Tune](https://github.com/ntcoding)
+- [Каспер Гуния](https://github.com/cakper )
+- [Зофия Херенди](https://twitter.com/zherendi )
+- [Мелодия Ника](https://github.com/ntcoding )
 
-Domain Message Flow Diagrams are heavily inspired by:
+Диаграммы потоков сообщений домена в значительной степени вдохновлены:
 
-- [Simon Brown's C4 Container Diagrams](https://c4model.com/)
-- [Domain Storytelling](https://domainstorytelling.org/)
+- [Диаграммы контейнеров C4 Саймона Брауна](https://c4model.com /)
+- [Повествование о домене](https://domainstorytelling.org /)
 
-## Contributions and Feedback
+## Вклады и отзывы
 
-The Domain Message Flow Modelling notation is freely available for you to use. In addition, your feedback and ideas are welcome to improve the technique or to create alternative versions.
+Нотация моделирования потока сообщений домена доступна для вас в свободном доступе. Кроме того, ваши отзывы и идеи приветствуются для улучшения техники или создания альтернативных версий.
 
-Feel free to also send us a pull request with your examples.
+Не стесняйтесь также отправлять нам запрос на извлечение с вашими примерами.
 
-[![CC BY 4.0][cc-by-shield]][cc-by]
+[![CC НА 4.0][cc-by-щит]][cc-by]
 
-This work is licensed under a [Creative Commons Attribution 4.0 International
-License][cc-by].
+Эта работа лицензирована в соответствии с [Creative Commons Attribution 4.0 International
+Лицензия][cc-by].
 
-[![CC BY 4.0][cc-by-image]][cc-by]
+[![CC НА 4.0][cc-по-изображению]][cc-по]
 
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
-[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
-[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+[cc-по-изображению]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-щит]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
